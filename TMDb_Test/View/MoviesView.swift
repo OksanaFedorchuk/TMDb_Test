@@ -24,7 +24,7 @@ struct MoviesView: View {
                     let url = URL(string: "https://image.tmdb.org/t/p/w300/\(movie.posterPath)")!
                     let title = movie.title
                     NavigationLink(
-                        destination: DetailsView(),
+                        destination: DetailsView(movieID: movie.movieId),
                         label: {
                             MoviePreview(url: url, title: title)
                         })
