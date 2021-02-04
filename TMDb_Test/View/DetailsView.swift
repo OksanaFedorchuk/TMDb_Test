@@ -8,10 +8,15 @@ import SwiftUI
 
 struct DetailsView: View {
     
+    @ObservedObject var viewModel: MovieViewModel
+
     let movieID: Int
     
     var body: some View {
-        Text(String("\(movieID)"))
+        Text(viewModel.details.title)
+            .onAppear {
+                viewModel.getMovieDetails(movieId: movieID)
+            }
     }
 }
 

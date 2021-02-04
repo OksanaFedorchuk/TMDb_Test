@@ -1,6 +1,6 @@
 //
 //  AsyncImage.swift
-//  CombineTest
+//  TMDb_Test
 //
 //  Created by Oksana Fedorchuk on 04.02.2021.
 //

@@ -71,8 +71,10 @@
 			isa = PBXGroup;
 			children = (
 				185806EB25C98F620070582F /* TMDb_TestApp.swift */,
-				18D95DF425CBF38200606781 /* View */,
 				18D95DF325CBF37700606781 /* Model */,
+				18D95DF425CBF38200606781 /* View */,
+				18D95E4725CC5BD300606781 /* ViewModel */,
+				18D95E5225CC5D4F00606781 /* Networking */,
 				185806EF25C98F660070582F /* Assets.xcassets */,
 				185806F425C98F660070582F /* Info.plist */,
 				185806F125C98F660070582F /* Preview Content */,
@@ -93,8 +95,6 @@
 			children = (
 				18D95DF025CBF24400606781 /* MovieModel.swift */,
 				18D95E3D25CC5B9300606781 /* MovieDetails.swift */,
-				18D95E4725CC5BD300606781 /* ViewModel */,
-				18D95E5225CC5D4F00606781 /* Networking */,
 			);
 			path = Model;
 			sourceTree = "<group>";
