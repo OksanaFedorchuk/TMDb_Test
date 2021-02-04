@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  LoginView.swift
 //  TMDb_Test
 //
 //  Created by Oksana Fedorchuk on 02.02.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct LoginView: View {
     
     @State var username: String = ""
     @State var password: String = ""
@@ -29,7 +29,7 @@ struct ContentView: View {
                 }
                 
                 NavigationLink(
-                    destination: FavouritesView(),
+                    destination: MoviesView(),
                     label: {
                             LoginButtonContent()
                     })
@@ -43,7 +43,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
+            LoginView()
         }
     }
 }
