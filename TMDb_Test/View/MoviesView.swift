@@ -18,23 +18,26 @@ struct MoviesView: View {
     ]
     
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: layout, spacing: 20) {
-                ForEach(viewModel.movies) { movie in
-                    let url = URL(string: "https://image.tmdb.org/t/p/w300/\(movie.posterPath)")!
-                    let title = movie.title
-                    NavigationLink(
-                        destination: DetailsView(viewModel: viewModel, movieID: movie.movieId),
-                        label: {
-                            MoviePreview(url: url, title: title)
-                        })
+        if let movies = viewModel.movies {
+            ScrollView {
+                LazyVGrid(columns: layout, spacing: 20) {
+                    ForEach(movies) { movie in
+                        let url = movie.image
+                        let title = movie.title
+                        NavigationLink(
+                            destination: DetailsView(viewModel: viewModel, movieID: movie.movieId),
+                            label: {
+                                MoviePreview(url: url, title: title)
+                            })
+                    }
                 }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
         }
     }
     
 }
+
 struct MoviePreview: View {
     
     var url: URL
@@ -48,7 +51,8 @@ struct MoviePreview: View {
             
             Text(title)
                 .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                .background(Color.oceanColor)
+                .background(Color.black.opacity(0.30))
+                .foregroundColor(.white)
                 .font(.body)
         }
     }

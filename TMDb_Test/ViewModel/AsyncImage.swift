@@ -26,9 +26,11 @@ struct AsyncImage: View {
             if loader.image != nil {
                 Image(uiImage: loader.image!)
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
             } else {
                 Image(systemName: "photo")
                     .resizable()
+                    .aspectRatio(contentMode: .fit)
             }
         }
     }

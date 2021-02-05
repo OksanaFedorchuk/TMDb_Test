@@ -9,11 +9,14 @@ import SwiftUI
 
 struct LoginView: View {
     
+    let storedUsername = "Login"
+    let storedPassword = "123123"
+    
     @State var username: String = ""
     @State var password: String = ""
     
     @State var authenticationDidFail: Bool = false
-    @State var authenticationDidSucceed: Bool = true
+    @State var authenticationDidSucceed: Bool = false
     
     var body: some View {
         NavigationView {
@@ -22,17 +25,25 @@ struct LoginView: View {
                 LoginImage()
                 UsernameTextfield(username: $username)
                 PasswordTextfield(password: $password)
+                NavigationLink(destination: MoviesView(), isActive: $authenticationDidSucceed) {
+                    Button (action: {
+                        if self.username == storedUsername && self.password == storedPassword {
+                            self.authenticationDidSucceed = true
+                            self.authenticationDidFail = false
+                            
+                        } else {
+                            self.authenticationDidFail = true
+                            self.authenticationDidSucceed = false
+                        }
+                    }) {LoginButtonContent()
+                    }
+                }
+                
                 if authenticationDidFail {
                     Text("Unvalid username or password")
                         .offset(y: -10)
                         .foregroundColor(.red)
                 }
-                
-                NavigationLink(
-                    destination: MoviesView(),
-                    label: {
-                            LoginButtonContent()
-                    })
             }
             .padding()
             .offset(y: -60)

@@ -9,7 +9,7 @@ import Foundation
 
 struct Movies: Codable {
     let movies: [Movie]
-
+    
     enum CodingKeys: String, CodingKey {
         case movies = "results"
     }
@@ -20,10 +20,14 @@ struct Movie: Codable, Identifiable {
     let movieId: Int
     let title: String
     let posterPath: String
-
+    
     enum CodingKeys: String, CodingKey {
         case movieId = "id"
         case posterPath = "poster_path"
         case title = "title"
     }
+    var image: URL {
+        URL(string: "https://image.tmdb.org/t/p/w300/\(posterPath)")!
+    }
+    
 }

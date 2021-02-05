@@ -12,8 +12,8 @@ import Combine
 class MovieViewModel: ObservableObject {
     
     //keep track on changes in movies
-    @Published var movies: [Movie] = []
-    @Published var details = MovieDetails(movieID: 0, image: "", title: "", voteAverage: 0.0, genres: [], language: [], overview: "")
+    @Published var movies: [Movie]?
+    @Published var details: MovieDetails?
     //A type-erasing cancellable object that executes a provided closure when canceled.
     var cancellationToken: AnyCancellable?
     //fetching data when view is being created
@@ -38,7 +38,7 @@ extension MovieViewModel {
                   receiveValue: {
                     //assign data to the movies property
                     self.movies = $0.movies
-            })
+                  })
     }
     
     
@@ -53,7 +53,7 @@ extension MovieViewModel {
                   receiveValue: {
                     //assign data to the movies property
                     self.details = $0
-            })
+                  })
     }
     
 }
